@@ -1,0 +1,19 @@
+﻿@{
+    ViewData["Title"] = "Inicio";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Bienvenido a SistemaBiblioteca</h1>
+    <p class="lead">Gestiona libros, categorías y usuarios de forma rápida y organizada.</p>
+
+    <hr />
+
+    <div class="mt-4">
+        <a class="btn btn-primary btn-lg" asp-controller="Libros" asp-action="Index">
+            Ver catálogo de libros
+        </a>
+        <a class="btn btn-outline-secondary btn-lg" asp-controller="Categorias" asp-action="Index">
+            Administrar categorías
+        </a>
+    </div>
+</div>

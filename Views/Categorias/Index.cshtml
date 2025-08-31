@@ -1,0 +1,41 @@
+﻿@model IEnumerable<SistemaBiblioteca.Models.Categoria>
+
+@{
+    ViewData["Title"] = "Categorías";
+}
+
+<h1 class="mb-3">Categorías</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">➕ Nueva Categoría</a>
+</p>
+
+<table class="table table-striped table-bordered">
+    <thead class="table-dark">
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Nombre)</th>
+            <th>@Html.DisplayNameFor(model => model.Descripcion)</th>
+            <th>@Html.DisplayNameFor(model => model.Codigo)</th>
+            <th>@Html.DisplayNameFor(model => model.Estado)</th>
+            <th style="width:150px;">Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Nombre)</td>
+                <td>@Html.DisplayFor(modelItem => item.Descripcion)</td>
+                <td>@Html.DisplayFor(modelItem => item.Codigo)</td>
+                <td>
+                    @(item.Estado ? "Activo" : "Inactivo")
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-sm btn-warning">✏ Editar</a>
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-sm btn-info">🔍 Detalles</a>
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger">🗑 Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
